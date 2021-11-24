@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Server Error
+{% endblock %}
+{% block content %}
+<style media="screen">
+    body {
+    background: #dedede;
+}
+.page-wrap {
+    min-height: 100vh;
+}
+</style>
+<div class="page-wrap d-flex flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <span class="display-1 d-block">500</span>
+                <div class="mb-4 lead">Internal Server Error</div>
+                <p>Sorry an error occurred, we have been notifed and our team is working on a fix.</p>
+                <a href="{% url 'blog:home' %}" class="btn btn-link">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

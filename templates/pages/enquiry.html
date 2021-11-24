@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Enquiry{% endblock %}
+{% block content %}
+
+</header>
+
+
+<!--<section class="text__about">-->
+        <div class="container-fluid container-md" id="Contact" >
+            <div class="title-left text-left wow bounce" data-wow-duration='2s'>
+                <h2 class="mt-4">Enquiry</h2>
+            </div>
+            <section class="form__section" style="padding: 0px !important;">
+                    <form method="POST" action="{% url 'pages:handle_enquiry' %}" data-endpoint="{% url 'pages:handle_enquiry' %}" class=" justify-content-between flex-column flex-wrap align-item-center form__enquery">
+                        {% csrf_token %}
+                        <!--title --> 
+                        <h2 class="name">Enquiry</h2>
+                        <!--MESSAGE --> 
+                        <textarea class="message" name="message" id="message" placeholder="Your Message"></textarea>
+                        <p style="font-size: 18px;">Your Details</p>
+                        <!--input container --> 
+                        <div class=" justify-content-order align-item-start form__name">
+                            <input type="text" class="firstname" name="full_name" placeholder="full name" placeholder="full name" required>
+                            <input class="email" type="email" name="email" id="email" placeholder="email" required>
+                        </div>
+                        <!--input container -->
+                        <div class=" justify-content-order align-item-start form__name">
+                            <input type="text" class="firstname" id="country" name="country" placeholder="country">
+                        </div>
+                        <div class=" justify-content-between flex-wrap" >
+                            <!--button  -->
+                            <input class="code" type="number" name="phone" placeholder="Contact Number">
+                            <div class="test">
+                                <button class="btn button-primary"><i class="fas fa-chevron-right"></i> Submit Request</button>
+                            </div>
+                        </div>
+                    </form>
+
+            </section>
+        </div>
+        
+    </div>  
+  </section>
+
+
+
+{% endblock %}

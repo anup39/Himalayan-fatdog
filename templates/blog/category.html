@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{% if category %} {{ category.name }} {% else %} {{ settings.BRAND_NAME }} {% endif %}{% endblock %}
+{% block content %}
+
+        <!--img and the img src is in style html -->
+        <img style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.5)) , url({% if category.image %}{{ category.image.url }}{% else %}{% static 'img/default.jpg' %}{% endif %})" class="img-header">
+        <div class="container-fluid container-md">
+            <!--box text -->
+            <div class="box__text">
+                <h1 class="hero__text wow fadeInDown" data-wow-duration="2s" > 
+                    {% if user.is_authenticated and user.is_staff  or user.is_superuser %}
+                    <a class="btn btn-info" href="{% url 'admin:blog_category_change' category.id %}"> Edit category <i class="far fa-edit"></i></a>
+                    {% endif %}
+                    <span>{{ category.name }}. </span>{{ category.header_title }}
+                </h1>
+                <!--button-->
+                <a class="button__circle wow fadeInDown discover" data-wow-duration="3s" ><i class="fas fa-arrow-down"></i>Learn More </a>
+            </div>
+        </div>
+  </header> 
+<!--section posts-->
+<!--    <section class="posts">-->
+        <div class="container-fluid container-md mt-4">
+          <div class="mb-2"><span class="text-muted">categories:</span>
+            <a href="{% url 'blog:posts' %}" class="card-link">All</a>
+            {% for c in categories %}
+                <a href="{{ c.get_absolute_url }}" class="card-link"> {% if c == category %}<i class="fas fa-caret-right"></i>{% endif %} {{ c.name }}</a> 
+            {% endfor %}      
+          </div>
+           <div class="row">
+               {% for post in posts  %}
+                    <div class="col-md-6">
+                        <!--box post-->
+                        <div class="box-posts">
+                            <!--img -->
+                            <img src="{% if post.image %}{{ post.image.url }}{% endif %}" class="img-post">
+                            <!--info -->
+                            <div class="info__social d-flex justify-content-center align-items-start flex-column w-100">
+                                <!--title-->
+                                <h3 class="head__social wow fadeInDown text-justify" data-wow-duration="2s" >{{ post.name }}</h3>
+                                <!--parg -->
+                                <p class="parg__social wow fadeInDown text-justify" data-wow-duration="3s" >{% if post.brief %}{{ post.brief }}{% endif %}</p>
+                                <!--button-->
+                                <a href="{{ post.get_absolute_url }}" class="button__circle wow fadeInDown" data-wow-duration="4s"><i class="fas fa-arrow-right"></i>Read More</a>
+                            </div>
+                        </div>
+                    </div> 
+                {% endfor %}
+           </div>
+        </div>
+        <div class="container" >
+            {% if is_paginated %}
+            <ul class="pagination pagination-circle justify-content-center">
+              {% if page_obj.has_previous %}
+              <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                      <i class="fas fa-angle-double-left"></i> Previous
+                  </a>
+              </li>
+              {% else %}
+              <li class="page-item disabled">
+                  <a class="page-link"><i class="fas fa-angle-double-left"></i> Previous
+                  </a>
+              </li>
+              {% endif %}
+              {% if page_obj.has_next %}
+              <li class="page-item">
+                  <a class="page-link ml-1" href="?page={{ page_obj.next_page_number }}">
+                    Next  <i class="fas fa-angle-double-right"></i>
+                  </a>
+              </li>
+              {% else %}
+              <li class="page-item disabled">
+                  <a class="page-link ml-1">
+                    Next  <i class="fas fa-angle-double-right"></i>
+                  </a>
+              </li>
+              {% endif %}
+            </ul>
+            {% endif %}
+          </div>
+    </section>
+
+
+
+{% endblock %}

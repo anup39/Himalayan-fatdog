@@ -1,0 +1,70 @@
+{% load static %}
+
+
+<footer>
+    <div class="container">
+        <div class="row ">
+            <!--logo img footer-->
+            <div class="col-sm-12 col-md-3 ">
+                <div class="logo-footer">
+                    <!--logo-->
+                      <!--title footer -->
+                
+                    <ul class="footer-categories-list">
+                      <img src="{% static 'img/navlogo.png' %}" style="padding-left: 2px; padding-bottom: 3px; clear: both; margin-top:-25px;">
+                      <h2 class="title-footer">We Accept</h2>
+                      <img src="https://raw.githubusercontent.com/thulotechnology/useful/main/cards.png" height="60" width="100"><br><br>
+                    </ul> 
+                </div>
+            </div>
+           <!--ENQUIRES items -->
+            <div class="col-sm-12 col-md-3">
+                <!--title footer -->
+                <h2 class="title-footer">ABOUT US & ENQUIRIES</h2>
+                <!--list -->
+                <ul class="footer-categories-list">
+                    <li class="categories-item"><a class="categories-link" href="{% url 'pages:about_us' %}#Contact">General</a></li>
+                    <li class="categories-item"><a class="categories-link" href="/faqs/">FAQs</a></li>
+                    <li class="categories-item"><a class="categories-link" href="{% url 'pages:about_us' %}">About Us</a></li>
+                    <li class="categories-item"><a class="categories-link" href="/terms-and-conditions/">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-16 col-md-2">
+                <!--title footer -->
+                <h2 class="title-footer">Contact Us</h2>
+                <!--list -->
+                <ul class="footer-categories-list">
+                    <li class="categories-item"><a class="categories-link" href="#">Facebook<span class="icon-facebook"></span></a></li>
+                    <li class="categories-item"><a class="categories-link" href="#">Email</a></li>
+                    <li class="categories-item"><a class="categories-link" href="">Website</a></li>
+                    <li class="categories-item"><a class="categories-link" href="#">Telephone</a></li>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <!--title footer -->
+                <h2 class="title-footer">Some Famous Content</h2>
+                <!--list -->
+                <ul class="footer-categories-list">
+                    <li class="categories-item"><a class="categories-link" href="https://thimalayanepal.com/post/everest-expedition/">Everest Expedition</a></li>
+                    <li class="categories-item"><a class="categories-link" href="https://thimalayanepal.com/post/annapurna-base-camp-trek/">Annapurna Base Camp Trek</a></li>
+                    <li class="categories-item"><a class="categories-link" href="https://thimalayanepal.com/post/upper-mustang-trek/">Upper Mustang Trek</a></li>
+                    <li class="categories-item"><a class="categories-link" href="https://thimalayanepal.com/post/jiri-everest-base-camp-trek/">Jiri Everest Base Camp Trek</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center">
+                <h2 class="title-footer">WE ARE ASSOCIATED WITH</h2><br>
+                <img src="https://raw.githubusercontent.com/thulotechnology/useful/main/cards.png" height="100" width="50%" >
+        </div>
+        <!--foooer down -->
+        <div class="footer__down d-flex justify-content-between align-items-center flex-wrap">
+            <div class="copy-right order-1"> 
+                <!--copy footer-->
+                <a class="copy-right-link mr-5 text-muted" style="font-size: 10px;">© Himalaya Treks Nepal 2021</a>
+            </div>
+            <!--social icons -->
+            <div class="icon-social order-2">
+                    <a href="https://www.instagram.com/himalayatreks.nepal/" target="_blank" style="font-size: 25px;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/himalayatreksnepal/" target="_blank" style="font-size: 25px;"><i class="fab fa-facebook"></i></a>
+            </div>
+       </div>
+</footer>

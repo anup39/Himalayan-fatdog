@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Corona Updates{% endblock %}
+{% block content %}
+
+</header>
+
+
+<section class="text__about">
+    <div class="container">
+        <!--title -->
+        <div class="title-left text-left wow bounce" data-wow-duration='2s'>
+        <h2>Dear Customers,</h2>
+            {% comment %} <h2>Corona Updates</h2> {% endcomment %}
+		{% comment %} {% if user.is_authenticated and user.is_staff  or user.is_superuser %}
+		<a class="btn btn-info" href="{% url 'admin:pages_aboutuspage_change' about.id %}"> Edit about info <i class="far fa-edit"></i></a>
+ 		{% endif %} {% endcomment %}
+	    {% comment %} </h2>
+		{% if about.second_title %}
+		<h4>{{ about.second_title }}</h4>
+		{% endif %} {% endcomment %}
+        <p class="text-justify">
+        We cordially apologize for the cancellation of Trips due to COVID-19 Pandemic.
+    Himalaya Treks Nepal (HTN) prioritizes full safety, health and well being of the team members and
+    customers. Considering government rules and the fear of rising COVID-19 cases, the CEO and the
+    board of the company have concluded that HTN will only be accessible online.
+    Himalaya Treks Nepal would also like to confirm that bookings for future travel plans are now open.
+    If you are looking or planning for the adventures in the coming days, we would love to hear it from you
+    through email exchanges, Skype, or from our website. Exclusive offers have been made for the
+    customers who were forcibly affected by COVID-19 and who could not complete their trips.
+    Offers:<br><br>
+    &nbsp;1. For a group of 10, one free tour shall be provided.<br>
+    &nbsp;2. Personalization of trips according to their budget.<br>
+    &nbsp;3. Heavy discount on world’s famous treks such as <br>
+    &nbsp;&nbsp;●	<a href="http://localhost:8000/post/everest-base-camp-trek/">Everest Base Camp Trek</a><br>
+    &nbsp;&nbsp;●	<a href="http://localhost:8000/post/annapurna-base-camp-climb-expedition/">Annapurna Base CampTrek</a><br>
+    &nbsp;&nbsp;●	<a href="http://localhost:8000/post/annapurna-circuit-trek/">Annapurna Circuit Trek</a><br>
+    &nbsp;&nbsp;●	<a href="http://localhost:8000/post/upper-mustang-trek/">Upper Mustang Trek</a><br>
+     &nbsp;&nbsp;●	<a href="http://localhost:8000/post/mardi-himal-trek/"> Mardi Himal Trek.</a><br><br>
+    Fighting with this pandemic has really been tough these days since it looks like the pandemic is
+    winning this war. However, scientists have proved that effective uses of Personal Protective
+    Equipment (PPE) such as masks and gloves, using sanitizers, and maintaining a safe social distance
+    among ourselves can highly reduce the growth of the cases. Therefore, this is a request for the
+    readers to follow these instructions to keep yourself and the surrounding safe.<br><br>
+
+    Thank you,<br>
+    Bir Bahadur Sunuwar<br>
+    CEO
+</p>
+        <!-- <p class="">HIMALAYA TREKS NEPAL Is Established Under Company Act 2006 Pursuant To Sub Section (1) Of Section 5 (Registration No 231501/076/077: Pan No:609692556). The Company Is Licensed By Tax Department Of Nepal As A Taxpayer, And By Central Bank Of Nepal As Foreign Currency Acceptable Company From Foreigners And Members Of National And International Tourism Umbrella Organizations. -->
+         </div>
+        </div>
+        </section>
+</div>
+
+
+{% endblock %}

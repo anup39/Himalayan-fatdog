@@ -1,0 +1,6 @@
+
+A new Booking has been added to your admin panel.
+
+Check it here.
+
+Thank you,

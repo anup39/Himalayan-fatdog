@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ social.name }}{% endblock %}
+{% block content %}
+
+</header>
+
+<div class="blog__post">
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col">
+                
+                <!--box post-->
+                <div class="box-posts">
+                    <!--img -->
+                    <img src="{% if social.image %}{{ social.image.url }}{% else %} {% static 'img/default.jpg' %}{% endif %}" class="img-blog-Read">
+                    <!--info -->
+                    <div class="info__social d-flex justify-content-center align-items-start flex-column w-100">
+                        <!--title-->
+                        <h3 class="head__social wow fadeInDown text-justify" data-wow-duration="2s" >{{ social.name }}
+                            {% if user.is_authenticated and user.is_staff  or user.is_superuser %}
+                            <a style="font-size: 15px;text-decoration: none;" href="{% url 'admin:blog_social_change' social.id %}"> edit this social work <i class="far fa-edit"></i></a>
+                            {% endif %}
+                        </h3>
+                        <!--parg -->
+                        <p class="parg__social wow fadeInDown text-justify" data-wow-duration="3s" >{{ social.content|safe }}</p>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+1. pages--> urls.py   ,,adding url path 
+   path('Booking',views.handle_booking, name='handle_booking')
+   path('Enquiry' views.handle_enquiry, name='handle_enquiry')
+
+2. pages-->views.py     ..adding two functions to handle form data 
+    def handle_enquiry(request):
+
+    ......
+    .....
+
+
+    ## adding another function named below:
+
+    def handle_enquiry(request):
+    .....
+    .....
+
+3. modifying booking_form.html
+  templates-->pages-->booking_form.html
+
+4. to add enquiry in blog pages
+  templates-->pages-->post.html
+  adding bootstrap container div in line 40
+
+5. To fit map or images
+  templates--> pages--> post_detail.html
+  changing class and adding inline css

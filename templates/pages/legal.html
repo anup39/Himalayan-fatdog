@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Legal Documents{% endblock %} {% block content %}
+
+</header>
+
+<!-- this is the carousel content from bootstrap  -->
+<section class="text__about">
+
+    <div class="container">
+        <!--title -->
+        <div class="title-left text-left wow bounce" data-wow-duration='2s'>
+            <h2>Legal Documents</h2>
+            <div id="legal_documents" class="carousel slide  w-100 mx-3" data-ride="carousel" style='margin-top:10px;'>
+                <ol class="carousel-indicators">
+                    <li data-target="#legal_documents" data-slide-to="0" class="active"></li>
+                    <li data-target="#legal_documents" data-slide-to="1"></li>
+                    <li data-target="#legal_documents" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row my-5" class="d-block w-100">
+                            <div class="col-md-6">
+                                <img src="https://raw.githubusercontent.com/himalayentreksnepal/himalayantrekspublic/main/img1.jpg" class="img-fluid">
+                            </div>
+                            <div class="col-md-6">
+                                <img src="https://raw.githubusercontent.com/himalayentreksnepal/himalayantrekspublic/main/img2.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row my-5" class="d-block w-100">
+                            <div class="col-md-6">
+                                <img src="https://raw.githubusercontent.com/himalayentreksnepal/himalayantrekspublic/main/img3.jpg" class="img-fluid">
+                            </div>
+                            <div class="col-md-6">
+                                <img src="https://raw.githubusercontent.com/himalayentreksnepal/himalayantrekspublic/main/img4.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row my-5" class="d-block w-100">
+                            <div class="col-md-6">
+                                <img src="https://raw.githubusercontent.com/himalayentreksnepal/himalayantrekspublic/main/img5.jpg" class="img-fluid">
+                            </div>
+                            <div class="col-md-6">
+                                <img src="https://raw.githubusercontent.com/himalayentreksnepal/himalayantrekspublic/main/img6.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#legal_documents" role="button" data-slide="prev" style="margin-right:-25px">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#legal_documents" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

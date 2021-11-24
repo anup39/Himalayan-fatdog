@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog{% endblock %}
+{% block content %}
+
+  </header> 
+  {% if query and results %}
+<!--section posts-->
+    <section class="posts">
+        <div class="container">
+            <div class="mb-2"><span class="text-muted">categories:</span>
+                <a href="{% url 'blog:posts' %}" class="card-link"><i class="fas fa-caret-right"></i> All</a>
+                {% for c in categories %}
+                    <a href="{{ c.get_absolute_url }}" class="card-link">{{ c.name }}</a> 
+                {% endfor %}
+            </div>
+           <div class="row">
+               {% for post in results  %}
+                    <div class="col-md-6">
+                        <!--box post-->
+                        <div class="box-posts">
+                            <!--img -->
+                            <img src="{% if post.image %}{{ post.image.url }}{% endif %}" class="img-post">
+                            <!--info -->
+                            <div class="info__social d-flex justify-content-center align-items-start flex-column w-100">
+                                <!--title-->
+                                <h3 class="head__social wow fadeInDown" data-wow-duration="2s" >{{ post.name }}</h3>
+                                <!--parg -->
+                                <p class="parg__social wow fadeInDown" data-wow-duration="3s" >{% if post.brief %}{{ post.brief }}{% endif %}</p>
+                                <!--button-->
+                                <a href="{{ post.get_absolute_url }}" class="button__circle wow fadeInDown card-link" data-wow-duration="4s"><i class="fas fa-arrow-right"></i>read more. </a>
+                            </div>
+                        </div>
+                    </div> 
+                {% endfor %}
+           </div>
+        </div>
+        <div class="container">
+            {% if is_paginated and query and results %}
+            <ul class="pagination pagination-circle justify-content-center">
+              {% if page_obj.has_previous %}
+              <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">
+                      <i class="fas fa-angle-double-left"></i> Previous
+                  </a>
+              </li>
+              {% else %}
+              <li class="page-item disabled">
+                  <a class="page-link"><i class="fas fa-angle-double-left"></i> Previous
+                  </a>
+              </li>
+              {% endif %}
+  
+              {% if page_obj.has_next %}
+              <li class="page-item">
+                  <a class="page-link ml-1" href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}">
+                    Next  <i class="fas fa-angle-double-right"></i>
+                  </a>
+              </li>
+              {% else %}
+              <li class="page-item disabled">
+                  <a class="page-link ml-1">
+                    Next  <i class="fas fa-angle-double-right"></i>
+                  </a>
+              </li>
+              {% endif %}
+            </ul>
+            {% endif %}
+          </div>
+    </section>
+    {% else %}
+    <section class="posts" style="height: 300px;">
+        <div class="container">
+            <p class="lead text-danger">No results found.</p>
+        </div>
+    </section>
+    {% endif %}
+
+
+{% endblock %}

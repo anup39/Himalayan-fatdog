@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Himalaya Treks Nepal - Nepals Best Trekking Agency {% endblock %}
+{% block content %}
+<div class="video-container ">
+    <video autoplay loop playsinline muted class="">
+        <!--src video -->
+        <source src="{% if home_header.video %}{{ home_header.video.url }}{% else %}{% static 'img/video.mp4' %}{% endif %}" type="video/mp4">
+    </video>
+</div>
+<div class="container">
+    <!--box text -->
+    <div class="box__text">
+        <h1 class="hero__text wow fadeInDown" data-wow-duration="2s">
+            {% if user.is_authenticated and user.is_staff or user.is_superuser %}
+            <a class="btn btn-info" href="{% url 'admin:pages_homeheader_change' home_header.id %}"> Edit this header <i class="far fa-edit"></i></a> {% endif %}
+            <span>{{ home_header.title }}</span> {{ home_header.header_title }}</h1>
+        <!--button-->
+        <a style="color: white;" class="button__circle wow fadeInDown card-link" href="https://thimalayanepal.com/post/everest-expedition/" data-wow-duration="4s"><i class="fas fa-arrow-right"></i>Learn More </a>
+        <!-- Button trigger modal -->
+        <!-- <a href="https://thimalayanepal.com/post/everest-expedition/" class="button__circle wow fadeInDown discover" data-wow-duration="3s" ><i class="fas fa-arrow-down"></i>Learn More </a> -->
+        <!-- <a href="" class="button__circle" data-wow-duration="3s" ><i class="fas fa-arrow-down"></i>Learn More </a> -->
+    </div>
+
+    </header>
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-5">
+                    <!--img logo -->
+                    <img src="{% static 'img/logo.png' %}" class="img-fluid ">
+                </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <!--text about -->
+                    <p class="text__about text-justify">We go above and beyond to satisfy our clients with top and most experience Sherpa with moto of no man leave behind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Featured posts-->
+    <section class="service">
+        <div class="container">
+            <div class="title-left text-left wow bounce" data-wow-duration='2s'>
+                <h2>Our most sold <br> Packages</h2>
+            </div>
+            <div class="row">
+                <!--slide-->
+                <div class="owl-carousel">
+                    {% for post in featured_posts %}
+                    <a href="{{ post.get_absolute_url }}">
+                        <div class="col">
+                            <!--box card -->
+                            <div class="box-card">
+                                <!--overlay-->
+                                <div class="overlay"></div>
+                                <!--img card -->
+                                <img class="img-card mb-4" src="{% if post.image %}{{ post.image.url }}{% endif %}">
+                                <!--header card -->
+                                <h3>{{ post.name }}</h3>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--social work -->
+    <section class="social">
+        <div class="container social-background">
+            <div class="title-left text-left wow bounce" data-wow-duration='2s'>
+                <h2>Our social <br> work</h2>
+            </div>
+            <!--row not reserve-->
+            <div class="row">
+                <!--img social -->
+                <div class="col-md-6 text-center">
+                    <!--img-->
+                    <a href="{% url 'blog:socials' %}" data-wow-duration="4s">
+                        <img class="social__img" src="{% static 'img/social-work1.JPG' %}">
+                    </a>
+                </div>
+                <!--card info-->
+                <div class="col-md-6 ">
+                    <!--card box -->
+                    <div class="info__social d-flex justify-content-center align-items-start flex-column w-100">
+                        <!--title-->
+                        <h3 class="head__social wow fadeInDown  text-justify" data-wow-duration="2s">Himalaya treks nepal always focus on making better future for those who are willing of and capable of.</h3>
+                        <!--parg -->
+                        <p class="parg__social wow fadeInDown  text-justify" data-wow-duration="3s">Our company always spend on 20% of profit for social work mainly we focus on education sector of remote area of nepal.</p>
+                        <!--button-->
+                        <a class="button__circle wow fadeInDown card-link" href="{% url 'blog:socials' %}" data-wow-duration="4s"><i class="fas fa-arrow-right"></i>Learn More </a>
+                    </div>
+                </div>
+            </div>
+            <!--row reserve -->
+            <div class="row">
+                <!--row reserve class order-md-1 -->
+                <!--img social -->
+                <div class="col-md-6 text-center order-md-1 ">
+                    <!--img-->
+                    <a href="{% url 'blog:socials' %}" data-wow-duration="4s">
+                        <img class="social__img" src="{% static 'img/social-work2.JPG' %}">
+                    </a>
+                </div>
+                <!--card info-->
+                <div class="col-md-6  ">
+                    <!--card box -->
+                    <div class="info__social d-flex justify-content-center align-items-start flex-column w-100">
+                        <!--parg -->
+                        <p class="parg__social wow fadeInDown text-justify" data-wow-duration="3s">We are able to primary schools for dolkha jhesphu which is remote area of dolakha. We provide dress and books for those school who are excellent on education and low at income to encourage their education so due of money they don’t
+                            have to give up their education. At future our goal is to make nepal fully educated country in which we have send our proposals to government also.</p>
+                        <!--button-->
+                        <a class="button__circle wow fadeInDown card-link" href="{% url 'blog:socials' %}" data-wow-duration="4s"><i class="fas fa-arrow-right"></i>Learn More </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!--img social -->
+                <div class="col-md-6 text-center">
+                    <!--img-->
+                    <a href="{% url 'blog:socials' %}" data-wow-duration="4s">
+                        <img class="social__img" src="{% static 'img/social-work3.JPG' %}">
+                    </a>
+                </div>
+                <!--card info-->
+                <div class="col-md-6 ">
+                    <!--card box -->
+                    <div class="info__social d-flex justify-content-center align-items-start flex-column w-100">
+                        <!--parg -->
+                        <p class="parg__social wow fadeInDown text-justify mt-3" data-wow-duration="3s">
+                            At pandemic COVID-19 we deliver food to some of family who are unable to work and have zero income.<br> At dolkha we built a house for widow who lost her everything on earthquake of 2015.<br> Our goal is to provide food, shelter
+                            and home through our social work and mainly on education sector.<br> We kindly request to our costumers if you agree with our goal we request you to donate some of amount happily.</p>
+                        <!--button-->
+                        <a class="button__circle wow fadeInDown card-link" href="{% url 'blog:socials' %}" data-wow-duration="4s"><i class="fas fa-arrow-right"></i>Learn More </a>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!--background -->
+    <!--img and the img src is in style html -->
+    <section class="background__advert" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.2)) , url({% static 'img/background.jpg' %})">
+        <div class="card__advert d-flex justify-content-between align-items-center flex-wrap align-content-center">
+            <!--title-->
+            <h3 class="header__advert wow fadeInDown" data-wow-duration="4s">Achieve Your</h3>
+            <!--img-->
+            <img class="img-advert wow bounce center" data-wow-duration='4s' src="{% static 'img/logo.png' %}">
+            <!--title -->
+            <h3 class="header__advert wow fadeInDown" data-wow-duration="4s">New Possible</h3>
+        </div>
+    </section>
+    <!--instagram -->
+    <section class="service">
+        <div class="title-left text-left wow bounce" data-wow-duration='2s'>
+            <h2>Latest on Instagram</h2>
+        </div>
+	 <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+      <!-- Your Chat Plugin code -->
+      <!--<div style="margin-right:20px" class="fb-customerchat"
+        attribution=setup_tool
+        page_id="102410194629333">
+      </div>-->
+      <div class="elfsight-app-56503a33-cb96-40a4-a84c-66e4bf81eb4e"></div>
+    </section>
+    </div>
+    
+    {% endblock %}

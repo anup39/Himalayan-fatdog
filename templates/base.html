@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% for tag in meta_tags  %}{{ tag.meta_tag|safe }}
+    {% endfor %}
+    {% block post_meta_tag %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    {% include 'base/css.html' %}
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo.png' %}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  </head>
+  <body>
+    {% include 'base/navbar.html' %}
+    {% block content %}
+    {% endblock %}
+    {% include 'base/footer.html' %}
+    {% include 'base/js.html' %}
+  </body>
+</html>

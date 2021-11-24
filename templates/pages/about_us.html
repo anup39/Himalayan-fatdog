@@ -1,0 +1,114 @@
+{% extends 'base.html' %} {% load static %} {% block title %}About Us{% endblock %} {% block content %}
+
+</header>
+
+
+<!--<section class="text__about">-->
+    <div class="container-md container-fluid mt-4">
+        <!--title -->
+        <div class="title-left text-left wow bounce" data-wow-duration='2s'>
+            <h2>{{ about.first_title }} {% if user.is_authenticated and user.is_staff or user.is_superuser %}
+                <a class="btn btn-info" href="{% url 'admin:pages_aboutuspage_change' about.id %}"> Edit about info <i class="far fa-edit"></i></a> {% endif %}
+            </h2>
+            {% if about.second_title %}
+            <h4>{{ about.second_title }}</h4>
+            {% endif %} {% comment %}
+            <p class="text-justify">{{ about.content|safe|linebreaks }}</p> {% endcomment %}
+            <!-- <p class="text-justify">HIMALAYA TREKS NEPAL Is Established Under Company Act 2006 Pursuant To Sub Section (1) Of Section 5 (Registration No 231501/076/077: Pan No:609692556). The Company Is Licensed By Tax Department Of Nepal As A Taxpayer, And By Central Bank Of Nepal As Foreign Currency Acceptable Company From Foreigners And Members Of National And International Tourism Umbrella Organizations. -->
+        </div>
+        <section class="our-team text-center" style="padding: 0px !important;">
+            <div class="team">
+                <div class="container" id="Team">
+                    <h2 class="h1">Meet Our Awesome Team {% if user.is_authenticated and user.is_staff or user.is_superuser %} {% if members.count == 10 %}
+                        <a class="btn btn-info" href="{% url 'admin:pages_member_changelist' %}">edit members <i class="far fa-edit"></i></a> {% else %}
+                        <a class="btn btn-primary" href="{% url 'admin:pages_member_add' %}">add member <i class="far fa-plus-square"></i></a> {% endif %} {% endif %}
+                    </h2>
+                    <div class="row">
+                        {% for member in members %} {% if forloop.counter == 20 or forloop.counter == 19 %}
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            {% else %}
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                {% endif %}
+                                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#member{{member.id}}">
+                                <div class="person">
+                                <img class="imgCircle" src="{% if member.image %}{{ member.image.url }}{% else %}{% static 'img/member.png' %}{% endif %}" alt="{{member.name}}">
+                                <h4 class="upper">{{member.name}}</h4>
+                                    <p>
+                                        {{member.role}}
+                                    </p>
+                                </div>
+                                </button>
+                            </div>
+                            <div class="modal fade" id="member{{member.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content" style="border:3px blue solid">
+                                        <div class="modal-header" style="border-bottom: 3px solid blue;">
+                                            <h5 class="modal-title text-primary" id="exampleModalLongTitle" style="margin-left: 90px;">Mr.{{member.name}}&nbsp;({{member.role}})
+                                            </h5>
+                                            <button type="button btn-primary" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body font-weight-lighter text-sm-center">
+                                            <h5 class="border  border-sm rounded border-primary p-2"> About {{member.name}}</h5>
+                                            <h6 style="text-align: justify" class="font-weight-light">{{member.about}}</h6>
+                                        </div>
+                                        <div class="modal-footer" style="border-top: 3px solid blue;">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+        </section>
+        </div>
+<!--        <div class="container" id="Contact" > -->
+<!--            <div class="title-left text-left wow bounce" data-wow-duration='2s'>-->
+<!--                <h2>Enquiry</h2>-->
+<!--            </div>-->
+<!--            <section class="text__about">-->
+        <div class="container-fluid container-md" id="Contact" >
+            <div class="title-left text-left wow bounce" data-wow-duration='2s'>
+                <h2>Enquiry</h2>
+            </div>
+            <section class="form__section" style="padding: 0px !important;">
+                    <form method="POST" action="{% url 'pages:handle_enquiry' %}" data-endpoint="{% url 'pages:handle_enquiry' %}" class=" justify-content-between flex-column flex-wrap align-item-center form__enquery">
+                        {% csrf_token %}
+                        <!--title --> 
+                        <h2 class="name">Enquiry</h2>
+                        <!--MESSAGE --> 
+                        <textarea class="message" name="message" id="message" placeholder="Your Message"></textarea>
+                        <p style="font-size: 18px;">Your Details</p>
+                        <!--input container --> 
+                        <div class=" justify-content-order align-item-start form__name">
+                            <input type="text" class="firstname" name="full_name" placeholder="full name" placeholder="full name" required>
+                            <input class="email" type="email" name="email" id="email" placeholder="email" required>
+                        </div>
+                        <!--input container -->
+                        <div class=" justify-content-order align-item-start form__name">
+                            <input type="text" class="firstname" id="country" name="country" placeholder="country">
+                        </div>
+                        <div class=" justify-content-between flex-wrap" >
+                            <!--button  -->
+                            <input class="code" type="number" name="phone" placeholder="Contact Number">
+                            <div class="test">
+                                <button class="btn button-primary"><i class="fas fa-chevron-right"></i> Submit Request</button>
+                            </div>
+                        </div>
+                    </form>
+
+            </section>
+        </div>
+        
+    </div>  
+  </section>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

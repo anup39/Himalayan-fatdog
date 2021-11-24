@@ -1,0 +1,9 @@
+changes steps:
+1. Pages-admin
+(member admin(admin.model/admin)
+if self.model.objects.count()>=20;
+2. templates pages ->aboutus.html
+{if forloop.counter==20 or 
+forloop.counter==19%}
+3.templates->page.details.html
+line 21-(style="textalign:justify")
